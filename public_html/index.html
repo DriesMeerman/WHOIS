@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html class="ui-mobile">
+    <head>
+        <title>Whois app</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--<script src="../library/js/jquery.mobile-1.4.5"></script>-->
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
+        <!--<script src="../library/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>-->
+        <!--<link rel="stylesheet" href="../library/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css">-->
+
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+            <script>
+        var loggedIn = false;
+
+        setLoginBtn(loggedIn);
+
+        function setLoginBtn(loggedIn) {
+            if (!loggedIn) {
+                setLoginBtnTxt("Login");
+            } else {
+                setLoginBtnTxt("Logout");
+            }
+        }
+
+        function setLoginBtnTxt(text) {
+            $('#loginOutBtn').text(text);
+        }
+
+
+    </script>
+        
+    </head>
+    <body class="ui-mobile-viewport ui-overlay">
+
+        <!--        <div class="b_header ui-header ui-bar-a" data-role="header">
+                    <h1> Page Title </h1>
+                </div>-->
+        <div data-role="header">
+            <h1>WHOIS</h1>
+        </div>
+
+        
+
+        <div role="contentinfo" data-role="footer" class="footer-docs ui-footer ui-bar-a ui-footer-fixed fade ui-fixed-overlay" data-theme="a" data-position="fixed">
+
+            <div data-role="navbar">
+                <ul>
+                    <li><a id="loginOutBtn" href="a.html" class="ui-btn">Login</a></li>                    
+                </ul>
+            </div><!-- /navbar -->
+
+        </div>
+
+    </body>
+    
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html class="ui-mobile">
+    <head>
+        <title>Whois app</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--<script src="../library/js/jquery.mobile-1.4.5"></script>-->
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
+        <!--<script src="../library/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>-->
+        <!--<link rel="stylesheet" href="../library/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css">-->
+
+        <!--Jquery mobile stylesheet-->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
+        <!--Jquery script base-->
+        <script src="jquery-1.11.3.min.js"></script>
+        <!--//<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>-->
+
+
+        <script>
+            //is needed to stop error 
+            //Uncaught SecurityError: Failed to execute 'replaceState' on 'History': A history state object with URL 
+            $(document).bind('mobileinit', function () {
+                $.mobile.changePage.defaults.changeHash = false;
+                $.mobile.hashListeningEnabled = false;
+                $.mobile.pushStateEnabled = false;
+            });
+        </script>
+
+        <!--Jquery mobile script-->
+        <script src="jquery.mobile-1.4.5.min.js"></script>
+
+    </head>
+<body class="ui-mobile-viewport ui-overlay">
+
+        <!--        <div class="b_header ui-header ui-bar-a" data-role="header">
+                    <h1> Page Title </h1>
+                </div>-->
+
+
+
+        <div data-role="page" id="one">
+
+            <div data-role="header">
+                <h1>WHOIS</h1>
+            </div>
+            <div data-role="content" >	
+                <h2>WHOIS xml api</h2>
+                <p>
+                    You are currently not logged into the WHOIS API. So the 
+                    app won't function properly.
+                    <br>
+                    Please login using the button on the bottom of the screen.
+                    <br><br>
+                    To create an account sign up 
+                <u><a href="https://www.whoisxmlapi.com/user/create.php"> here</a></u>.
+                </p>
+
+                <!--<p><a id="loginPageBtn" href="#two" data-role="button">Show page "two"</a></p>-->	
+
+            </div><!-- /content -->
+            <div role="contentinfo" data-role="footer" class="footer-docs ui-footer ui-bar-a ui-footer-fixed fade ui-fixed-overlay" data-theme="a" data-position="fixed">
+
+                <div data-role="navbar">
+                    <ul>
+                        <li><a id="loginBtn" href="#three" class="ui-btn">Login</a></li>                    
+                    </ul>
+                </div><!-- /navbar -->
+
+            </div>
+
+        </div><!-- /page one -->
+
+
+        <!-- Start of second page: #two -->
+        <div data-role="page" id="two" data-theme="a">
+
+            <div data-role="header">
+                <h1>WHOIS</h1>
+            </div>
+
+            <div data-role="content" data-theme="a">	
+                <h2>WHOIS</h2>
+                
+                <label>Search:</label>
+                <input type="text" id="searchbar"/>
+                <p><a data-direction="reverse" data-role="button" data-theme="b" onclick="search_api();">Search</a></p>	
+                <pre id="whoisData"></pre>
+            </div><!-- /content -->
+
+            <div role="contentinfo" data-role="footer" class="footer-docs ui-footer ui-bar-a ui-footer-fixed fade ui-fixed-overlay" data-theme="a" data-position="fixed">
+
+                <div data-role="navbar">
+                    <ul>
+                        <li><a id="logOutBtn" href="#one" class="ui-btn" onclick="removeUserFromStorage()">Logout</a></li>                    
+                    </ul>
+                </div><!-- /navbar -->
+
+            </div>
+        </div><!-- /page two -->
+
+        <div data-role="page" id="three" data-theme="a">
+
+            <div data-role="header">
+                <h1>WHOIS</h1>
+            </div>
+
+            <div data-role="content" data-theme="a">	
+                <h2 align="center">Login</h2>
+                
+                <p style="color: #16a2de"><b>Username: </b></p><input id="username" type="text"/>
+                <p style="color: #16a2de"><b>Password: </b></p><input id="password" type="password"/>
+                <br>
+                <p>Forgot password click <u><a href="https://www.whoisxmlapi.com/password/remind.php">here</a></u>.</p>
+            <br>
+            <p><a href="#two" data-direction="reverse" data-role="button" data-theme="b" onclick="saveUser();">Submit</a></p>	
+
+            </div><!-- /content -->
+
+        </div>
+
+
+
+    </body>
+    <script src="User.js"></script>
+    <script src="app.js"></script>
+</html>
